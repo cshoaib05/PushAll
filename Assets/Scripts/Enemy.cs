@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Hit()
     {
         ishit = true;
-        rb.AddForce(-transform.forward * 40f);
+        rb.AddForce(-transform.forward * 30f);
         yield return new WaitForSeconds(2f);
         ishit = false;
     }
