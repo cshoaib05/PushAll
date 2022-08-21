@@ -37,13 +37,20 @@ public class Enemy : MonoBehaviour
             StartCoroutine(Hit());
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("hit") && PlayerMovement.hitIt)
+        {
+            StartCoroutine(Hit());
+        }
+    }
 
 
     IEnumerator Hit()
     {
         ishit = true;
         rb.AddForce(-transform.forward * 30f);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         ishit = false;
     }
 }
